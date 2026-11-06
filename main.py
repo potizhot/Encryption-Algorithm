@@ -1,50 +1,24 @@
 import des
 
 # example plaintext message
-plaintext = 0x0123456789ABCDEF
-# do initial permutation and split them in 2 halves 32 bits
-after_ip = des.permute(plaintext, des.IP, 64)
-l0 = after_ip >> 32
-r0 = after_ip & ((1 << 32) - 1)
+message = "Dasalla Qpal"
+# message = input("Enter a message you want to encrypt (255 max): ")
+# if len(message) > 254:
+#     raise ValueError("Max length is 255")
 
 # example key
-key = 0x133457799BBCDFF1
-# permutated the key from 64bit to 56 bit then split it in 2
-key_56 = des.permute(key, des.PC1, 64)
-c0 = key_56 >> 28
-d0 = key_56 & ((1 << 28) - 1)
+key = 0xD4AAE705DDE1A60A
+# key_text = input("Enter a 16-digit Hex DES key: ").strip()
+# if len(key_text) != 16:
+#     raise ValueError("Enter exactly 16 hexadecimal digits")
+# key = int(key_text, 16)
 
-c = c0
-d = d0
-round_keys = []
+encrypted = des.encrypt_message(message, key)
+decrypted = des.decrypt_message(encrypted, key)
 
-for shifts in des.KEY_SHIFTS:
-    # left shift the split values, still 28bits, no bits dropped
-    c = des.rotate_left_28(c, shifts)
-    d = des.rotate_left_28(d, shifts)
+binary_output = "".join(f"{byte:08b}" for byte in encrypted)
+print(f"Ciphertext (binary): {binary_output}")
 
-    # permutated choice 2, join the two rotated 28 bits key, then permutate and choose 48 bits out of 56 bits
-    joined_key = (c << 28) | d
-    round_key = des.permute(joined_key, des.PC2, 56)
-    round_keys.append(round_key)
-
-# Run the 16 DES rounds
-left = l0
-right = r0
-
-# loop for each round of des
-for round_key in round_keys:
-    f_result = des.round_function(right, round_key)
-
-    # make the left half the new right and vice versa
-    new_left = right
-    new_right = left ^ f_result
-
-    left = new_left
-    right = new_right
-
-# swap the halves, then apply the final permutation
-before_fp = (right << 32) | left
-ciphertext = des.permute(before_fp, des.FP, 64)
-
-print(f"Ciphertext: {ciphertext:016X}")
+print(f"Message:    {message}")
+print(f"Ciphertext: {encrypted.hex()}")
+print(f"Decrypted Text: {decrypted}")

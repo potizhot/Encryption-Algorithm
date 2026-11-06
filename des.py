@@ -1,7 +1,20 @@
+# function helpers
 # show the bits 
 def show_bits(value: int, width: int) -> str:
     """Show an integer as exactly `width` binary digits."""
     return f"{value:0{width}b}"
+
+# encode message sa UTF-8 and pad it to complete 8-byte blocks
+def prepare_message(message: str) -> bytes:
+    if len(message) > 255:
+        raise ValueError("Message must be at most 255 characters")
+
+    message_bytes = message.encode("utf-8")
+
+    padding_length = 8 - (len(message_bytes) % 8)
+    padding = bytes([padding_length]) * padding_length
+
+    return message_bytes + padding
 
 # select and rearrange bits using different DES tables
 def permute(value: int, table: list[int], input_width: int) -> int:
@@ -30,6 +43,7 @@ def use_s_box(group: int, box: list[list[int]]) -> int:
 
     return box[row][column]
 
+# CALCULATION USED EACH ROUND
 # DES mangler function
 def round_function(right: int, round_key: int) -> int:
     # expansion permutation for the right half of the plaintext
@@ -53,6 +67,7 @@ def round_function(right: int, round_key: int) -> int:
     return permute(s_box_result, P, 32)
 
 
+# DES tables
 # initial permutation table list
 IP = [
     58, 50, 42, 34, 26, 18, 10,  2,
@@ -92,7 +107,6 @@ PC2 = [
 # Number of circular left shifts for rounds 1 through 16
 KEY_SHIFTS = [1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1]
 
-# mangler function
 # Expansion permutation select 48 bits from the 32-bit right message half
 E = [
     32, 1, 2, 3, 4, 5,
@@ -185,3 +199,136 @@ FP = [
     34,  2, 42, 10, 50, 18, 58, 26,
     33,  1, 41,  9, 49, 17, 57, 25,
 ]
+
+# OVERALL DES STEPS
+# key handler
+def make_round_keys(key: int) -> list[int]:
+    # permutated the key from 64bit to 56 bit then split it in 2
+    key_56 = permute(key, PC1, 64)
+    c0 = key_56 >> 28
+    d0 = key_56 & ((1 << 28) - 1)
+
+    c = c0
+    d = d0
+    round_keys = []
+
+    for shifts in KEY_SHIFTS:
+        # left shift the split values, still 28bits, no bits dropped
+        c = rotate_left_28(c, shifts)
+        d = rotate_left_28(d, shifts)
+
+        # permutated choice 2, join the two rotated 28 bits key, then permutate and choose 48 bits out of 56 bits
+        joined_key = (c << 28) | d
+        round_key = permute(joined_key, PC2, 56)
+        round_keys.append(round_key)
+
+    return round_keys
+
+# encryption code
+def encrypt_block(plaintext: int, key: int) -> int:
+    # do initial permutation and split them in 2 halves 32 bits
+    after_ip = permute(plaintext, IP, 64)
+    l0 = after_ip >> 32
+    r0 = after_ip & ((1 << 32) - 1)
+
+    round_keys = make_round_keys(key)
+
+    # Run the 16 DES rounds
+    left = l0
+    right = r0
+
+    # loop for each round of des
+    for round_key in round_keys:
+        f_result = round_function(right, round_key)
+
+        # make the left half the new right and vice versa
+        new_left = right
+        new_right = left ^ f_result
+
+        left = new_left
+        right = new_right
+
+    # swap the halves, then apply the final permutation
+    before_fp = (right << 32) | left
+    ciphertext = permute(before_fp, FP, 64)
+    return ciphertext
+
+# decryption code
+def decrypt_block(ciphertext: int, key: int) -> int:
+    # initial permutation and split into two 32-bit halves
+    after_ip = permute(ciphertext, IP, 64)
+    left = after_ip >> 32
+    right = after_ip & ((1 << 32) - 1)
+
+    # decryption uses K16 first and K1 last
+    round_keys = make_round_keys(key)
+
+    for round_key in reversed(round_keys):
+        f_result = round_function(right, round_key)
+
+        new_left = right
+        new_right = left ^ f_result
+
+        left = new_left
+        right = new_right
+
+    # swap the halves and apply the inverse initial permutation
+    before_fp = (right << 32) | left
+    plaintext = permute(before_fp, FP, 64)
+
+    return plaintext
+
+# divide the encoded messages into 8 byte blocks and encrypt each block
+def encrypt_message(message: str, key: int) -> bytes:
+    prepared = prepare_message(message)
+    encrypted = bytearray()
+
+    for start in range(0, len(prepared), 8):
+        block_bytes = prepared[start:start + 8]
+        block_number = int.from_bytes(block_bytes, "big")
+
+        encrypted_number = encrypt_block(block_number, key)
+        encrypted.extend(encrypted_number.to_bytes(8, "big"))
+
+    return bytes(encrypted)
+
+# divide cipertext into 8 byte blocks and decrypt each block
+def decrypt_message(ciphertext: bytes, key: int) -> str:
+    if not ciphertext or len(ciphertext) % 8 != 0:
+        raise ValueError("Ciphertext must contain complete 8-byte blocks")
+
+    decrypted = bytearray()
+
+    for start in range(0, len(ciphertext), 8):
+        block_bytes = ciphertext[start:start + 8]
+        block_number = int.from_bytes(block_bytes, "big")
+
+        decrypted_number = decrypt_block(block_number, key)
+        decrypted.extend(decrypted_number.to_bytes(8, "big"))
+
+    padding_length = decrypted[-1]
+
+    if not 1 <= padding_length <= 8:
+        raise ValueError("Invalid padding")
+    if decrypted[-padding_length:] != bytes([padding_length]) * padding_length:
+        raise ValueError("Invalid padding")
+
+    message_bytes = decrypted[:-padding_length]
+    return message_bytes.decode("utf-8")
+
+# CHECKING THE CODE OUTPUTS
+if __name__ == "__main__":
+
+    message = "Dasalla Qpal"
+    changed_message = "U" + message[1:]
+    key = 0x133457799BBCDFF1
+
+    original = encrypt_message(message, key)
+    changed = encrypt_message(changed_message, key)
+
+    changed_bits = sum((a ^ b).bit_count() for a, b in zip(original, changed))
+
+    print(f"Original message: {message}")
+    print(f"Changed message:  {changed_message}")
+    print(f"Changed ciphertext bits: {changed_bits} of 64")
+    print(f"Avalanche effect: {changed_bits / 64 * 100:.2f}%")
