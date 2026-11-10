@@ -1,0 +1,10 @@
+setting,value
+training_seed,20261110
+training_tests_per_input_bit,100
+confirmation_seed,20261111
+confirmation_tests_per_input_bit,200
+round_3_target_percent,48.0
+worst_input_bit_target_percent,45.0
+python_version,3.13.3
+platform,Windows-11-10.0.26300-SP0
+timing_method,median of 3 runs; 1000 encrypt_block calls each; includes key schedule

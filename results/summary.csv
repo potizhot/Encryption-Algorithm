@@ -1,0 +1,9 @@
+stage,design,rotations,tests,round_3_percent,worst_bit_round_3_percent,final_percent,final_below_40_count,decrypts_correctly,milliseconds_per_block
+training,DES,,6400,34.403,17.719,50.061,335,True,0.3063
+training,2 rotations,1 5,6400,44.743,34.625,49.973,345,True,0.301
+training,4 rotations,1 5 9 13,6400,47.853,39.797,50.081,327,True,0.3104
+training,6 rotations,1 5 9 13 17 21,6400,48.897,42.328,50.046,313,True,0.3164
+training,8 rotations,1 5 9 13 17 21 25 29,6400,49.515,40.703,50.08,353,True,0.3241
+confirmation,DES,,12800,34.291,17.227,49.96,647,True,0.3074
+confirmation,6 rotations,1 5 9 13 17 21,12800,48.744,41.758,49.982,680,True,0.3112
+confirmation,8 rotations,1 5 9 13 17 21 25 29,12800,49.542,40.445,49.983,664,True,0.3214

@@ -1,0 +1,513 @@
+stage,design,plaintext_bit,round_3_percent
+training,DES,0,32.328
+training,DES,1,50.5
+training,DES,2,28.141
+training,DES,3,47.297
+training,DES,4,32.203
+training,DES,5,49.312
+training,DES,6,30.141
+training,DES,7,47.031
+training,DES,8,19.312
+training,DES,9,40.297
+training,DES,10,18.781
+training,DES,11,41.062
+training,DES,12,19.609
+training,DES,13,40.328
+training,DES,14,17.719
+training,DES,15,38.734
+training,DES,16,18.516
+training,DES,17,39.031
+training,DES,18,18.312
+training,DES,19,39.484
+training,DES,20,20.547
+training,DES,21,39.781
+training,DES,22,18.5
+training,DES,23,38.703
+training,DES,24,32.125
+training,DES,25,49.281
+training,DES,26,29.016
+training,DES,27,47.938
+training,DES,28,30.75
+training,DES,29,49.594
+training,DES,30,31.844
+training,DES,31,48.578
+training,DES,32,31.594
+training,DES,33,48.062
+training,DES,34,30.594
+training,DES,35,47.562
+training,DES,36,30.469
+training,DES,37,46.0
+training,DES,38,29.688
+training,DES,39,46.75
+training,DES,40,20.469
+training,DES,41,42.234
+training,DES,42,18.922
+training,DES,43,39.625
+training,DES,44,18.688
+training,DES,45,39.5
+training,DES,46,18.828
+training,DES,47,38.938
+training,DES,48,18.391
+training,DES,49,37.781
+training,DES,50,19.359
+training,DES,51,39.141
+training,DES,52,19.844
+training,DES,53,40.578
+training,DES,54,19.984
+training,DES,55,40.656
+training,DES,56,29.109
+training,DES,57,46.641
+training,DES,58,31.906
+training,DES,59,48.297
+training,DES,60,30.328
+training,DES,61,46.656
+training,DES,62,32.219
+training,DES,63,48.172
+training,2 rotations,0,45.125
+training,2 rotations,1,50.031
+training,2 rotations,2,42.719
+training,2 rotations,3,49.781
+training,2 rotations,4,43.25
+training,2 rotations,5,50.547
+training,2 rotations,6,42.156
+training,2 rotations,7,49.922
+training,2 rotations,8,35.547
+training,2 rotations,9,49.188
+training,2 rotations,10,35.828
+training,2 rotations,11,49.469
+training,2 rotations,12,37.234
+training,2 rotations,13,49.203
+training,2 rotations,14,36.062
+training,2 rotations,15,50.562
+training,2 rotations,16,36.141
+training,2 rotations,17,48.656
+training,2 rotations,18,35.781
+training,2 rotations,19,50.234
+training,2 rotations,20,36.375
+training,2 rotations,21,50.406
+training,2 rotations,22,36.406
+training,2 rotations,23,50.781
+training,2 rotations,24,42.969
+training,2 rotations,25,50.297
+training,2 rotations,26,45.094
+training,2 rotations,27,49.562
+training,2 rotations,28,42.875
+training,2 rotations,29,50.281
+training,2 rotations,30,42.031
+training,2 rotations,31,50.5
+training,2 rotations,32,43.531
+training,2 rotations,33,50.375
+training,2 rotations,34,44.25
+training,2 rotations,35,50.266
+training,2 rotations,36,41.484
+training,2 rotations,37,50.5
+training,2 rotations,38,41.344
+training,2 rotations,39,50.484
+training,2 rotations,40,37.188
+training,2 rotations,41,49.641
+training,2 rotations,42,37.406
+training,2 rotations,43,49.547
+training,2 rotations,44,35.828
+training,2 rotations,45,49.359
+training,2 rotations,46,34.625
+training,2 rotations,47,49.562
+training,2 rotations,48,35.781
+training,2 rotations,49,48.781
+training,2 rotations,50,37.109
+training,2 rotations,51,48.984
+training,2 rotations,52,35.266
+training,2 rotations,53,48.984
+training,2 rotations,54,35.688
+training,2 rotations,55,49.438
+training,2 rotations,56,43.078
+training,2 rotations,57,49.828
+training,2 rotations,58,44.391
+training,2 rotations,59,50.172
+training,2 rotations,60,42.734
+training,2 rotations,61,48.641
+training,2 rotations,62,44.906
+training,2 rotations,63,49.359
+training,4 rotations,0,51.531
+training,4 rotations,1,50.016
+training,4 rotations,2,48.766
+training,4 rotations,3,50.172
+training,4 rotations,4,48.547
+training,4 rotations,5,49.797
+training,4 rotations,6,45.141
+training,4 rotations,7,49.797
+training,4 rotations,8,43.266
+training,4 rotations,9,49.891
+training,4 rotations,10,42.188
+training,4 rotations,11,49.922
+training,4 rotations,12,40.281
+training,4 rotations,13,50.125
+training,4 rotations,14,39.797
+training,4 rotations,15,49.125
+training,4 rotations,16,42.688
+training,4 rotations,17,51.016
+training,4 rotations,18,43.906
+training,4 rotations,19,50.234
+training,4 rotations,20,41.422
+training,4 rotations,21,49.531
+training,4 rotations,22,40.719
+training,4 rotations,23,50.141
+training,4 rotations,24,50.719
+training,4 rotations,25,50.953
+training,4 rotations,26,51.281
+training,4 rotations,27,51.156
+training,4 rotations,28,46.562
+training,4 rotations,29,49.484
+training,4 rotations,30,48.281
+training,4 rotations,31,49.891
+training,4 rotations,32,51.172
+training,4 rotations,33,49.75
+training,4 rotations,34,49.859
+training,4 rotations,35,49.781
+training,4 rotations,36,44.219
+training,4 rotations,37,48.812
+training,4 rotations,38,48.031
+training,4 rotations,39,49.828
+training,4 rotations,40,43.281
+training,4 rotations,41,51.031
+training,4 rotations,42,43.359
+training,4 rotations,43,51.516
+training,4 rotations,44,41.672
+training,4 rotations,45,51.016
+training,4 rotations,46,42.641
+training,4 rotations,47,50.016
+training,4 rotations,48,43.188
+training,4 rotations,49,49.516
+training,4 rotations,50,43.719
+training,4 rotations,51,49.969
+training,4 rotations,52,42.922
+training,4 rotations,53,51.656
+training,4 rotations,54,43.797
+training,4 rotations,55,49.625
+training,4 rotations,56,44.906
+training,4 rotations,57,50.359
+training,4 rotations,58,51.234
+training,4 rotations,59,50.703
+training,4 rotations,60,50.422
+training,4 rotations,61,49.297
+training,4 rotations,62,49.062
+training,4 rotations,63,49.891
+training,6 rotations,0,55.375
+training,6 rotations,1,49.797
+training,6 rotations,2,50.766
+training,6 rotations,3,51.469
+training,6 rotations,4,48.547
+training,6 rotations,5,51.031
+training,6 rotations,6,44.969
+training,6 rotations,7,49.797
+training,6 rotations,8,46.984
+training,6 rotations,9,50.453
+training,6 rotations,10,47.234
+training,6 rotations,11,49.156
+training,6 rotations,12,43.859
+training,6 rotations,13,49.953
+training,6 rotations,14,42.328
+training,6 rotations,15,49.984
+training,6 rotations,16,47.031
+training,6 rotations,17,50.031
+training,6 rotations,18,47.844
+training,6 rotations,19,49.609
+training,6 rotations,20,44.016
+training,6 rotations,21,50.969
+training,6 rotations,22,44.281
+training,6 rotations,23,49.078
+training,6 rotations,24,48.391
+training,6 rotations,25,49.109
+training,6 rotations,26,49.703
+training,6 rotations,27,50.125
+training,6 rotations,28,47.797
+training,6 rotations,29,49.375
+training,6 rotations,30,55.062
+training,6 rotations,31,50.688
+training,6 rotations,32,49.984
+training,6 rotations,33,49.844
+training,6 rotations,34,49.984
+training,6 rotations,35,49.797
+training,6 rotations,36,47.203
+training,6 rotations,37,50.25
+training,6 rotations,38,51.875
+training,6 rotations,39,50.25
+training,6 rotations,40,44.25
+training,6 rotations,41,50.656
+training,6 rotations,42,47.312
+training,6 rotations,43,50.578
+training,6 rotations,44,46.234
+training,6 rotations,45,50.203
+training,6 rotations,46,45.781
+training,6 rotations,47,50.375
+training,6 rotations,48,43.0
+training,6 rotations,49,49.078
+training,6 rotations,50,48.688
+training,6 rotations,51,49.953
+training,6 rotations,52,47.391
+training,6 rotations,53,49.812
+training,6 rotations,54,46.266
+training,6 rotations,55,50.422
+training,6 rotations,56,45.078
+training,6 rotations,57,50.203
+training,6 rotations,58,52.25
+training,6 rotations,59,49.969
+training,6 rotations,60,51.516
+training,6 rotations,61,49.141
+training,6 rotations,62,47.672
+training,6 rotations,63,49.609
+training,8 rotations,0,52.031
+training,8 rotations,1,49.938
+training,8 rotations,2,51.375
+training,8 rotations,3,49.359
+training,8 rotations,4,47.812
+training,8 rotations,5,50.516
+training,8 rotations,6,44.844
+training,8 rotations,7,50.313
+training,8 rotations,8,48.688
+training,8 rotations,9,49.469
+training,8 rotations,10,55.859
+training,8 rotations,11,51.172
+training,8 rotations,12,41.188
+training,8 rotations,13,49.984
+training,8 rotations,14,40.703
+training,8 rotations,15,48.453
+training,8 rotations,16,52.5
+training,8 rotations,17,50.609
+training,8 rotations,18,55.844
+training,8 rotations,19,49.781
+training,8 rotations,20,43.547
+training,8 rotations,21,50.844
+training,8 rotations,22,45.391
+training,8 rotations,23,50.453
+training,8 rotations,24,48.141
+training,8 rotations,25,49.188
+training,8 rotations,26,51.438
+training,8 rotations,27,49.938
+training,8 rotations,28,48.703
+training,8 rotations,29,49.922
+training,8 rotations,30,53.422
+training,8 rotations,31,50.531
+training,8 rotations,32,51.109
+training,8 rotations,33,48.453
+training,8 rotations,34,54.219
+training,8 rotations,35,49.734
+training,8 rotations,36,47.125
+training,8 rotations,37,49.172
+training,8 rotations,38,51.078
+training,8 rotations,39,50.313
+training,8 rotations,40,41.703
+training,8 rotations,41,49.531
+training,8 rotations,42,51.641
+training,8 rotations,43,49.094
+training,8 rotations,44,48.422
+training,8 rotations,45,50.062
+training,8 rotations,46,48.719
+training,8 rotations,47,50.531
+training,8 rotations,48,44.703
+training,8 rotations,49,50.062
+training,8 rotations,50,48.375
+training,8 rotations,51,50.016
+training,8 rotations,52,52.469
+training,8 rotations,53,49.953
+training,8 rotations,54,49.891
+training,8 rotations,55,50.969
+training,8 rotations,56,45.828
+training,8 rotations,57,49.938
+training,8 rotations,58,55.219
+training,8 rotations,59,50.078
+training,8 rotations,60,51.016
+training,8 rotations,61,49.531
+training,8 rotations,62,48.875
+training,8 rotations,63,49.203
+confirmation,DES,0,32.0
+confirmation,DES,1,48.695
+confirmation,DES,2,29.141
+confirmation,DES,3,47.062
+confirmation,DES,4,31.977
+confirmation,DES,5,49.539
+confirmation,DES,6,30.008
+confirmation,DES,7,48.445
+confirmation,DES,8,19.219
+confirmation,DES,9,39.922
+confirmation,DES,10,18.391
+confirmation,DES,11,39.43
+confirmation,DES,12,19.867
+confirmation,DES,13,39.5
+confirmation,DES,14,17.359
+confirmation,DES,15,37.383
+confirmation,DES,16,19.109
+confirmation,DES,17,38.484
+confirmation,DES,18,19.031
+confirmation,DES,19,38.586
+confirmation,DES,20,19.562
+confirmation,DES,21,39.867
+confirmation,DES,22,17.227
+confirmation,DES,23,38.219
+confirmation,DES,24,32.289
+confirmation,DES,25,48.609
+confirmation,DES,26,31.281
+confirmation,DES,27,47.578
+confirmation,DES,28,30.773
+confirmation,DES,29,46.914
+confirmation,DES,30,31.141
+confirmation,DES,31,47.844
+confirmation,DES,32,31.453
+confirmation,DES,33,47.055
+confirmation,DES,34,31.102
+confirmation,DES,35,48.352
+confirmation,DES,36,30.023
+confirmation,DES,37,47.477
+confirmation,DES,38,30.125
+confirmation,DES,39,47.828
+confirmation,DES,40,21.781
+confirmation,DES,41,41.875
+confirmation,DES,42,18.984
+confirmation,DES,43,39.844
+confirmation,DES,44,18.875
+confirmation,DES,45,39.539
+confirmation,DES,46,17.75
+confirmation,DES,47,38.398
+confirmation,DES,48,18.086
+confirmation,DES,49,38.383
+confirmation,DES,50,19.297
+confirmation,DES,51,40.0
+confirmation,DES,52,19.961
+confirmation,DES,53,40.133
+confirmation,DES,54,19.781
+confirmation,DES,55,40.586
+confirmation,DES,56,29.398
+confirmation,DES,57,46.281
+confirmation,DES,58,31.398
+confirmation,DES,59,48.211
+confirmation,DES,60,30.391
+confirmation,DES,61,46.609
+confirmation,DES,62,32.305
+confirmation,DES,63,48.891
+confirmation,6 rotations,0,54.891
+confirmation,6 rotations,1,49.445
+confirmation,6 rotations,2,50.086
+confirmation,6 rotations,3,49.828
+confirmation,6 rotations,4,48.859
+confirmation,6 rotations,5,50.195
+confirmation,6 rotations,6,45.703
+confirmation,6 rotations,7,49.938
+confirmation,6 rotations,8,46.766
+confirmation,6 rotations,9,50.164
+confirmation,6 rotations,10,46.828
+confirmation,6 rotations,11,50.055
+confirmation,6 rotations,12,41.758
+confirmation,6 rotations,13,49.555
+confirmation,6 rotations,14,42.227
+confirmation,6 rotations,15,48.547
+confirmation,6 rotations,16,48.07
+confirmation,6 rotations,17,50.0
+confirmation,6 rotations,18,47.477
+confirmation,6 rotations,19,50.078
+confirmation,6 rotations,20,44.312
+confirmation,6 rotations,21,49.93
+confirmation,6 rotations,22,44.562
+confirmation,6 rotations,23,49.719
+confirmation,6 rotations,24,48.43
+confirmation,6 rotations,25,49.586
+confirmation,6 rotations,26,50.297
+confirmation,6 rotations,27,49.867
+confirmation,6 rotations,28,47.734
+confirmation,6 rotations,29,49.5
+confirmation,6 rotations,30,53.102
+confirmation,6 rotations,31,49.68
+confirmation,6 rotations,32,50.203
+confirmation,6 rotations,33,49.594
+confirmation,6 rotations,34,49.859
+confirmation,6 rotations,35,49.938
+confirmation,6 rotations,36,47.086
+confirmation,6 rotations,37,50.555
+confirmation,6 rotations,38,51.508
+confirmation,6 rotations,39,49.523
+confirmation,6 rotations,40,42.984
+confirmation,6 rotations,41,49.891
+confirmation,6 rotations,42,47.562
+confirmation,6 rotations,43,49.375
+confirmation,6 rotations,44,46.086
+confirmation,6 rotations,45,49.641
+confirmation,6 rotations,46,45.438
+confirmation,6 rotations,47,50.891
+confirmation,6 rotations,48,42.953
+confirmation,6 rotations,49,50.625
+confirmation,6 rotations,50,47.258
+confirmation,6 rotations,51,50.18
+confirmation,6 rotations,52,47.227
+confirmation,6 rotations,53,49.812
+confirmation,6 rotations,54,45.953
+confirmation,6 rotations,55,50.062
+confirmation,6 rotations,56,45.266
+confirmation,6 rotations,57,50.367
+confirmation,6 rotations,58,52.102
+confirmation,6 rotations,59,50.578
+confirmation,6 rotations,60,51.297
+confirmation,6 rotations,61,50.43
+confirmation,6 rotations,62,48.031
+confirmation,6 rotations,63,50.156
+confirmation,8 rotations,0,52.953
+confirmation,8 rotations,1,50.406
+confirmation,8 rotations,2,49.031
+confirmation,8 rotations,3,50.453
+confirmation,8 rotations,4,50.391
+confirmation,8 rotations,5,50.617
+confirmation,8 rotations,6,44.789
+confirmation,8 rotations,7,49.109
+confirmation,8 rotations,8,51.578
+confirmation,8 rotations,9,50.539
+confirmation,8 rotations,10,54.516
+confirmation,8 rotations,11,49.734
+confirmation,8 rotations,12,41.398
+confirmation,8 rotations,13,50.195
+confirmation,8 rotations,14,40.445
+confirmation,8 rotations,15,50.344
+confirmation,8 rotations,16,53.797
+confirmation,8 rotations,17,49.773
+confirmation,8 rotations,18,55.648
+confirmation,8 rotations,19,49.852
+confirmation,8 rotations,20,44.266
+confirmation,8 rotations,21,49.742
+confirmation,8 rotations,22,45.555
+confirmation,8 rotations,23,49.227
+confirmation,8 rotations,24,48.797
+confirmation,8 rotations,25,50.562
+confirmation,8 rotations,26,50.875
+confirmation,8 rotations,27,49.227
+confirmation,8 rotations,28,48.602
+confirmation,8 rotations,29,49.547
+confirmation,8 rotations,30,54.781
+confirmation,8 rotations,31,50.172
+confirmation,8 rotations,32,51.25
+confirmation,8 rotations,33,49.922
+confirmation,8 rotations,34,52.703
+confirmation,8 rotations,35,50.187
+confirmation,8 rotations,36,47.516
+confirmation,8 rotations,37,50.031
+confirmation,8 rotations,38,51.781
+confirmation,8 rotations,39,50.68
+confirmation,8 rotations,40,42.562
+confirmation,8 rotations,41,49.82
+confirmation,8 rotations,42,51.5
+confirmation,8 rotations,43,49.383
+confirmation,8 rotations,44,48.062
+confirmation,8 rotations,45,48.945
+confirmation,8 rotations,46,47.289
+confirmation,8 rotations,47,49.648
+confirmation,8 rotations,48,42.562
+confirmation,8 rotations,49,50.867
+confirmation,8 rotations,50,47.016
+confirmation,8 rotations,51,49.352
+confirmation,8 rotations,52,51.602
+confirmation,8 rotations,53,49.422
+confirmation,8 rotations,54,50.422
+confirmation,8 rotations,55,49.961
+confirmation,8 rotations,56,45.906
+confirmation,8 rotations,57,50.523
+confirmation,8 rotations,58,54.562
+confirmation,8 rotations,59,50.578
+confirmation,8 rotations,60,51.289
+confirmation,8 rotations,61,49.664
+confirmation,8 rotations,62,49.469
+confirmation,8 rotations,63,49.289

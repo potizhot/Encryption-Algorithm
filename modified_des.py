@@ -71,7 +71,7 @@ def round_function(right: int, round_key: int) -> int:
     mixed_result = p_result
 
     # Rotate it by each amount, then XOR each copy into the result.
-    for shift in (1, 5, 9, 13, 17, 21, 25, 29):
+    for shift in ROTATIONS:
         rotated = ((p_result << shift) | (p_result >> (32 - shift))) & 0xFFFFFFFF
         mixed_result ^= rotated
 
@@ -79,6 +79,10 @@ def round_function(right: int, round_key: int) -> int:
 
 
 # DES tables
+# extra rotations used after the standard P-box.
+# changes this tuple to compare different diffusion layers.
+ROTATIONS = (1, 5, 9, 13, 17, 21, 25, 29)
+
 # initial permutation table list
 IP = [
     58, 50, 42, 34, 26, 18, 10,  2,
