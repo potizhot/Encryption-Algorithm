@@ -1,10 +1,10 @@
 import des
 
 # example plaintext message
-message = "Dasalla Qpal"
-# message = input("Enter a message you want to encrypt (255 max): ")
-# if len(message) > 254:
-#     raise ValueError("Max length is 255")
+# message = "Dasalla Qpal"
+message = input("Enter a message you want to encrypt (255 max): ")
+if len(message) > 254:
+    raise ValueError("Max length is 255")
 
 # example key
 key = 0xD4AAE705DDE1A60A

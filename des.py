@@ -316,19 +316,86 @@ def decrypt_message(ciphertext: bytes, key: int) -> str:
     message_bytes = decrypted[:-padding_length]
     return message_bytes.decode("utf-8")
 
-# CHECKING THE CODE OUTPUTS
-if __name__ == "__main__":
+# avalanche effect testing, check across multiple bytes
+def test_avalanche_effect(message: str, changed_message: str, key: int):
 
-    message = "Dasalla Qpal"
-    changed_message = "U" + message[1:]
-    key = 0x133457799BBCDFF1
+    original_bytes = message.encode("utf-8")
+    modified_bytes = changed_message.encode("utf-8")
 
+    # Ensure fair bit-by-bit comparison
+    if len(original_bytes) != len(modified_bytes):
+        raise ValueError(
+            "Both messages must have the same byte length"
+        )
+
+    if original_bytes == modified_bytes:
+        raise ValueError("The plaintext must be modified")
+
+    # Encrypt both messages
     original = encrypt_message(message, key)
     changed = encrypt_message(changed_message, key)
 
-    changed_bits = sum((a ^ b).bit_count() for a, b in zip(original, changed))
+    # Count changed plaintext bits
+    plaintext_changed_bits = sum(
+        (a ^ b).bit_count()
+        for a, b in zip(original_bytes, modified_bytes)
+    )
 
-    print(f"Original message: {message}")
-    print(f"Changed message:  {changed_message}")
-    print(f"Changed ciphertext bits: {changed_bits} of 64")
-    print(f"Avalanche effect: {changed_bits / 64 * 100:.2f}%")
+    # Find blocks containing modified plaintext bytes
+    affected_blocks = {
+        i // 8
+        for i, (a, b) in enumerate(zip(original_bytes, modified_bytes))
+        if a != b
+    }
+
+    # Compare all ciphertext bits
+    ciphertext_changed_bits = sum(
+        (a ^ b).bit_count()
+        for a, b in zip(original, changed)
+    )
+
+    # Calculate avalanche in the affected blocks
+    affected_bits = len(affected_blocks) * 64
+
+    affected_avalanche = (
+        ciphertext_changed_bits / affected_bits
+    ) * 100
+
+    # Calculate change across the entire ciphertext
+    total_bits = len(original) * 8
+
+    overall_change = (
+        ciphertext_changed_bits / total_bits
+    ) * 100
+
+    return (
+        plaintext_changed_bits,
+        ciphertext_changed_bits,
+        len(affected_blocks),
+        affected_avalanche,
+        overall_change
+    )
+
+# CHECKING THE CODE OUTPUTS
+if __name__ == "__main__":
+    message = input("Enter original plaintext: ")
+    changed_message = input("Enter modified plaintext: ")
+
+    key = 0x133457799BBCDFF1
+
+    (
+        input_bits,
+        output_bits,
+        affected_blocks,
+        avalanche,
+        overall
+    ) = test_avalanche_effect(message, changed_message, key)
+
+    print(f"\nOriginal Plaintext: {message}")
+    print(f"Modified Plaintext: {changed_message}")
+
+    print(f"\nPlaintext Bits Changed: {input_bits}")
+    print(f"Ciphertext Bits Changed: {output_bits}")
+    print(f"Affected DES Blocks: {affected_blocks}")
+    print(f"Affected-Block Avalanche Effect: {avalanche:.2f}%")
+    print(f"Whole-Message Ciphertext Change: {overall:.2f}%")
