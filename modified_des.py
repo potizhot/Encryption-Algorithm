@@ -67,12 +67,15 @@ def round_function(right: int, round_key: int) -> int:
     # Rearrange the S-box output using the standard P-box.
     p_result = permute(s_box_result, P, 32)
 
-    # Make two rotated copies of those 32 bits.
-    rotated_7 = ((p_result << 7) | (p_result >> 25)) & 0xFFFFFFFF
-    rotated_19 = ((p_result << 19) | (p_result >> 13)) & 0xFFFFFFFF
+    # Start with the 32-bit P-box result.
+    mixed_result = p_result
 
-    # Mix the original and both copies together.
-    return p_result ^ rotated_7 ^ rotated_19
+    # Rotate it by each amount, then XOR each copy into the result.
+    for shift in (1, 5, 9, 13, 17, 21, 25, 29):
+        rotated = ((p_result << shift) | (p_result >> (32 - shift))) & 0xFFFFFFFF
+        mixed_result ^= rotated
+
+    return mixed_result
 
 
 # DES tables

@@ -56,3 +56,23 @@ for name, totals in [
         print(f"  Round {round_number}: {percentage:.2f}%")
 
     print()
+
+# Test how often the final avalanche result is low.
+key = 0x133457799BBCDFF1
+tests = 3000
+low_results = [0, 0]
+
+for _ in range(tests):
+    plaintext = randbits(64)
+    changed = plaintext ^ (1 << randbits(6))
+
+    for number, algorithm in enumerate([des, modified_des]):
+        first = algorithm.encrypt_block(plaintext, key)
+        second = algorithm.encrypt_block(changed, key)
+        changed_bits = (first ^ second).bit_count()
+
+        if changed_bits <= 25:  # 25 out of 64 is below 40%
+            low_results[number] += 1
+
+print(f"Standard DES below 40%: {low_results[0]} out of {tests}")
+print(f"Modified DES below 40%: {low_results[1]} out of {tests}")
