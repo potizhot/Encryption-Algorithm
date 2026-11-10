@@ -23,7 +23,7 @@ def encrypt_rounds(algorithm, plaintext, key):
 
 tests = 3000
 standard_totals = [0] * 16
-modified_totals = [0] * 24
+modified_totals = [0] * 16
 
 for _ in range(tests):
     plaintext = randbits(64)

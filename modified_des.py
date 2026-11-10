@@ -64,7 +64,15 @@ def round_function(right: int, round_key: int) -> int:
         s_box_result = (s_box_result << 4) | four_bits
 
     # does the p permutation
-    return permute(s_box_result, P, 32)
+    # Rearrange the S-box output using the standard P-box.
+    p_result = permute(s_box_result, P, 32)
+
+    # Make two rotated copies of those 32 bits.
+    rotated_7 = ((p_result << 7) | (p_result >> 25)) & 0xFFFFFFFF
+    rotated_19 = ((p_result << 19) | (p_result >> 13)) & 0xFFFFFFFF
+
+    # Mix the original and both copies together.
+    return p_result ^ rotated_7 ^ rotated_19
 
 
 # DES tables
@@ -104,12 +112,8 @@ PC2 = [
     46, 42, 50, 36, 29, 32,
 ]
 
-# Standard DES shifts for rounds 1–16, followed by four extra rounds
-KEY_SHIFTS = [
-    1, 1, 2, 2, 2, 2, 2, 2,
-    1, 2, 2, 2, 2, 2, 2, 1,
-    1, 2, 2, 2, 2, 2, 2, 1
-]
+# Number of circular left shifts for rounds 1 through 16
+KEY_SHIFTS = [1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1]
 
 # Expansion permutation select 48 bits from the 32-bit right message half
 E = [
@@ -382,6 +386,7 @@ def test_avalanche_effect(message: str, changed_message: str, key: int):
 
 # CHECKING THE CODE OUTPUTS
 if __name__ == "__main__":
+    print('THIS IS MODIFIED DES')
     message = input("Enter original plaintext: ")
     changed_message = input("Enter modified plaintext: ")
 
