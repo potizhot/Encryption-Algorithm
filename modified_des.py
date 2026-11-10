@@ -104,8 +104,12 @@ PC2 = [
     46, 42, 50, 36, 29, 32,
 ]
 
-# Number of circular left shifts for rounds 1 through 16
-KEY_SHIFTS = [1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1]
+# Standard DES shifts for rounds 1–16, followed by four extra rounds
+KEY_SHIFTS = [
+    1, 1, 2, 2, 2, 2, 2, 2,
+    1, 2, 2, 2, 2, 2, 2, 1,
+    1, 2, 2, 2, 2, 2, 2, 1
+]
 
 # Expansion permutation select 48 bits from the 32-bit right message half
 E = [
