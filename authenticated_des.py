@@ -1,14 +1,14 @@
-"""DES-CBC with HMAC-SHA256 for an educational terminal prototype.
+"""Modified DES-CBC with HMAC-SHA256 for an educational terminal prototype.
 
 Packet format: 8-byte IV | DES ciphertext | 32-byte HMAC tag.
-DES itself remains the standard 16-round implementation in des.py.
+The block cipher uses the added rotation-and-XOR step in modified_des.py.
 """
 
 import hashlib
 import hmac
 import secrets
 
-import des
+import modified_des as des
 
 
 BLOCK_SIZE = 8

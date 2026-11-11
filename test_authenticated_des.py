@@ -3,7 +3,7 @@
 import secrets
 
 import authenticated_des
-import des
+import modified_des
 
 
 des_key = 0x133457799BBCDFF1
@@ -35,7 +35,7 @@ assert first != second
 print("Fresh IV:         same message produced different packets")
 
 # ECB reveals repeated blocks; CBC should give different ciphertext blocks.
-ecb = des.encrypt_message("ABCDEFGH" * 8, des_key)
+ecb = modified_des.encrypt_message("ABCDEFGH" * 8, des_key)
 cbc = first[8:-32]
 assert ecb[:8] == ecb[8:16]
 assert cbc[:8] != cbc[8:16]

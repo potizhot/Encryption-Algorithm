@@ -1,4 +1,4 @@
-"""Terminal entry point for the DES-CBC + HMAC-SHA256 prototype."""
+"""Terminal prototype for Modified DES-CBC with HMAC-SHA256."""
 
 import secrets
 
@@ -25,10 +25,10 @@ def read_mac_key():
 
 
 def main():
-    print("DES-CBC + HMAC-SHA256")
+    print("\n=== Modified DES-CBC + HMAC-SHA256 ===")
     print("1. Encrypt a message")
-    print("2. Decrypt a packet")
-    choice = input("Choose 1 or 2: ").strip()
+    print("2. Decrypt a saved packet")
+    choice = input("\nChoose an option (1 or 2): ").strip()
     print()
 
     try:
@@ -38,13 +38,13 @@ def main():
             mac_key = secrets.token_bytes(32)
 
             packet = authenticated_des.encrypt_message(message, des_key, mac_key)
-            print()
+            print("\n--- Encrypted result ---")
             print("DES key:          ", f"{des_key:016X}")
             print("HMAC key:         ", mac_key.hex().upper())
             print("IV:               ", packet[:8].hex().upper())
             print("Ciphertext:       ", packet[8:-32].hex().upper())
             print("HMAC-SHA256 tag:  ", packet[-32:].hex().upper())
-            print("Full packet:      ", packet.hex().upper())
+            print("Full packet (save this for decryption):", packet.hex().upper())
             print("Verified plaintext:", authenticated_des.decrypt_message(packet, des_key, mac_key))
 
             tampered = bytearray(packet)
@@ -59,11 +59,11 @@ def main():
             des_key = read_des_key()
             mac_key = read_mac_key()
             message = authenticated_des.decrypt_message(packet, des_key, mac_key)
-            print("Authentication:    Passed")
+            print("\nAuthentication: Passed")
             print("Decrypted message:", message)
 
         else:
-            print("Choose 1 or 2.")
+            print("Please choose 1 or 2.")
 
     except ValueError as error:
         print("Error:", error)

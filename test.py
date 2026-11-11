@@ -1,4 +1,6 @@
 from secrets import randbits
+from statistics import median
+from time import perf_counter
 import des
 import modified_des
 
@@ -76,3 +78,14 @@ for _ in range(tests):
 
 print(f"Standard DES below 40%: {low_results[0]} out of {tests}")
 print(f"Modified DES below 40%: {low_results[1]} out of {tests}")
+
+# Time both block ciphers with the same plaintexts and keys.
+blocks = [(randbits(64), randbits(64)) for _ in range(300)]
+for name, algorithm in [("Standard DES", des), ("Modified DES", modified_des)]:
+    times = []
+    for _ in range(3):
+        start = perf_counter()
+        for plaintext, key in blocks:
+            algorithm.encrypt_block(plaintext, key)
+        times.append((perf_counter() - start) / len(blocks) * 1000)
+    print(f"{name} encryption: {median(times):.4f} ms/block")
