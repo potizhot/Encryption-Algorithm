@@ -4,11 +4,11 @@ DES algorithm for AIS Case Study
 
 # Modified DES with CBC and HMAC-SHA256
 
-This study adds rotation and XOR mixing after the DES P-box to spread bit changes earlier. CBC encrypts full messages; HMAC-SHA256 checks for changes before decryption. `des.py` is the standard DES comparison, while `modified_des.py` is used by the prototype.
+This study adds rotation and XOR mixing after the DES P-box to spread bit changes earlier. CBC encrypts full messages; HMAC-SHA256 checks for changes before decryption. `modified_des.py` is used by the prototype.
 
 ## Run the prototype
 
-Keep `main.py`, `authenticated_des.py`, `modified_des.py`, and `des.py` in one folder. With Python 3 installed, run `python main.py` (or `py main.py` on Windows).
+Keep `main.py`, `authenticated_des.py`, `modified_des.py` With Python 3 installed, run `python main.py` (or `py main.py` on Windows).
 
 - Choose **1** to encrypt a message (up to 255 characters). Enter a 16-digit hex DES key or press Enter to generate one.
 - Save the **full packet**, **DES key**, and **HMAC key** shown. Choose **2** and enter those same values to decrypt.
