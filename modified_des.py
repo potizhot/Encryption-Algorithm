@@ -1,7 +1,7 @@
 # function helpers
 # show the bits 
 def show_bits(value: int, width: int) -> str:
-    """Show an integer as exactly `width` binary digits."""
+    """Show an integer as exactly `width` binary digits"""
     return f"{value:0{width}b}"
 
 # encode message sa UTF-8 and pad it to complete 8-byte blocks

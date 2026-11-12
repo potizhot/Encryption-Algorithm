@@ -1,4 +1,4 @@
-"""Run the authenticated DES prototype checks: python test_authenticated_des.py."""
+"""Autheticated DES prototype test"""
 
 import secrets
 

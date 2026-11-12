@@ -1,3 +1,4 @@
+"""Test avanlanche effect in Standard vs Modified DES"""
 from secrets import randbits
 from statistics import median
 from time import perf_counter

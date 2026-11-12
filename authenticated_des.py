@@ -1,7 +1,7 @@
-"""Modified DES-CBC with HMAC-SHA256 for an educational terminal prototype.
+"""Modified DES-CBC with HMAC-SHA256 for an educational terminal prototype
 
-Packet format: 8-byte IV | DES ciphertext | 32-byte HMAC tag.
-The block cipher uses the added rotation-and-XOR step in modified_des.py.
+Packet format: 8-byte IV | DES ciphertext | 32-byte HMAC tag
+The block cipher uses the added rotation-and-XOR step in modified_des.py
 """
 
 import hashlib

@@ -1,4 +1,4 @@
-"""Terminal prototype for Modified DES-CBC with HMAC-SHA256."""
+"""Terminal prototype for Modified DES-CBC with HMAC-SHA256"""
 
 import secrets
 import authenticated_des
