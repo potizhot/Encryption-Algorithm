@@ -23,7 +23,7 @@ def check_keys(des_key: int, mac_key: bytes) -> None:
 
 
 def encrypt_message(message: str, des_key: int, mac_key: bytes) -> bytes:
-    """Encrypt text, then authenticate the IV and ciphertext."""
+    # Encrypt text, then authenticate the IV and ciphertext
     check_keys(des_key, mac_key)
     plaintext = des.prepare_message(message)  # UTF-8 plus 8-byte padding
     iv = secrets.token_bytes(BLOCK_SIZE)
@@ -43,7 +43,7 @@ def encrypt_message(message: str, des_key: int, mac_key: bytes) -> bytes:
 
 
 def decrypt_message(packet: bytes, des_key: int, mac_key: bytes) -> str:
-    """Check authenticity first; decrypt only when the tag matches."""
+    # Check authenticity first, decrypt only when the tag matches
     check_keys(des_key, mac_key)
     if not isinstance(packet, bytes) or len(packet) < BLOCK_SIZE * 2 + TAG_SIZE:
         raise ValueError("Invalid packet length")

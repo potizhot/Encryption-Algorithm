@@ -1,13 +1,12 @@
 """Terminal prototype for Modified DES-CBC with HMAC-SHA256."""
 
 import secrets
-
 import authenticated_des
 
 
 def read_des_key(allow_generate=False):
     prompt = "DES key (16 hex digits"
-    prompt += ", Enter to generate" if allow_generate else ""
+    prompt += ", Enter to generate" if allow_generate else ", paste from encryption"
     text = input(prompt + "): ").strip()
 
     if allow_generate and not text:
@@ -18,7 +17,7 @@ def read_des_key(allow_generate=False):
 
 
 def read_mac_key():
-    text = input("HMAC key (64 hex digits): ").strip()
+    text = input("Paste HMAC key from encryption (64 hex digits): ").strip()
     if len(text) != 64:
         raise ValueError("HMAC key must have exactly 64 hexadecimal digits")
     return bytes.fromhex(text)
@@ -55,7 +54,7 @@ def main():
                 print("Tamper test:       Changed ciphertext rejected")
 
         elif choice == "2":
-            packet = bytes.fromhex(input("Full packet (hex): ").strip())
+            packet = bytes.fromhex(input("Paste full packet from encryption (hex): ").strip())
             des_key = read_des_key()
             mac_key = read_mac_key()
             message = authenticated_des.decrypt_message(packet, des_key, mac_key)
